@@ -1,9 +1,11 @@
-# Markdown Live Previewer
+# GitHub User Lookup Enhancer
 
 ## Summary
-A static web application that allows users to input Markdown text and see a live preview of the rendered HTML. Utilizing `marked.js` for Markdown conversion and `highlight.js` for syntax highlighting, this app features a clean two-column layout for an optimal user experience.
+This static web app enhances the GitHub user lookup experience by providing real-time updates, displaying account age, and caching user data for improved usability. The app features a polite aria-live alert for lookup updates, shows the account age in years, and utilizes localStorage to remember the last successful lookup.
 
 ## Setup (Local)
+To set up the project locally, follow these steps:
+
 1. Clone the repository:
    ```bash
    git clone https://github.com/24f2004387/user-when.git
@@ -15,21 +17,24 @@ A static web application that allows users to input Markdown text and see a live
 3. Open `index.html` in your preferred web browser.
 
 ## Usage
-- Type or paste Markdown text into the textarea on the left.
-- The converted HTML will be displayed live in the preview area on the right.
-- Code blocks will be highlighted for better readability.
+1. Enter a GitHub username in the input field.
+2. Click the "Lookup" button to fetch user data.
+3. The account age will be displayed in years, and any updates will be announced via the aria-live alert.
 
 ## Code Explanation
-- The app uses `document.querySelector` to access the textarea and output elements.
-- `marked.js` is utilized to convert Markdown to HTML, ensuring `typeof window.marked !== 'undefined'`.
-- `highlight.js` is integrated for syntax highlighting, confirmed by `typeof window.hljs !== 'undefined'`.
-- The output is dynamically updated, checking for valid HTML elements like `<h1>` or `<p>` in the preview area.
+- The app uses `document.querySelector` to manipulate DOM elements and display user data.
+- The `aria-live` attribute is set to "polite" for the status alert, ensuring that updates are announced without interrupting the user.
+- The account age is calculated and displayed in the `#github-account-age` element.
+- The last successful lookup is stored in `localStorage` under the key 'github-user-seed123' and repopulated on page load.
 
 ## Deployment (GitHub Pages)
+To deploy the app on GitHub Pages:
+
 1. Push your changes to the `main` branch of your repository.
 2. Go to the repository settings on GitHub.
-3. Under the "Pages" section, select the `main` branch as the source.
-4. Your site will be live at `https://24f2004387.github.io/user-when/`.
+3. Scroll down to the "GitHub Pages" section.
+4. Select the `main` branch as the source and save.
+5. Access your live app at: [https://24f2004387.github.io/user-when/](https://24f2004387.github.io/user-when/)
 
 ## License (MIT)
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
