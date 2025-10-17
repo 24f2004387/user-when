@@ -1,34 +1,35 @@
-# GitHub User Fetcher
+# Markdown Live Previewer
 
 ## Summary
-GitHub User Fetcher is a static web application that allows users to input a GitHub username and fetches the account creation date. The app utilizes Bootstrap for styling and JavaScript to interact with the GitHub API. 
+A static web application that allows users to input Markdown text and see a live preview of the rendered HTML. Utilizing `marked.js` for Markdown conversion and `highlight.js` for syntax highlighting, this app features a clean two-column layout for an optimal user experience.
 
 ## Setup (Local)
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/github-user-fetcher.git
+   git clone https://github.com/24f2004387/user-when.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd github-user-fetcher
+   cd user-when
    ```
 3. Open `index.html` in your preferred web browser.
 
 ## Usage
-1. Enter a GitHub username in the form with `id="github-user-seed123"`.
-2. Optionally, append `?token=` with your GitHub token for authenticated requests.
-3. Click the submit button to fetch and display the account creation date in the element with `id="github-created-at"`.
+- Type or paste Markdown text into the textarea on the left.
+- The converted HTML will be displayed live in the preview area on the right.
+- Code blocks will be highlighted for better readability.
 
 ## Code Explanation
-- The form is identified by `id="github-user-seed123"` and is used to capture the GitHub username.
-- A JavaScript function fetches user data from the GitHub API endpoint `https://api.github.com/users/{username}`.
-- The account creation date is extracted from the response and displayed in the specified format (YYYY-MM-DD UTC) within the element `#github-created-at`.
+- The app uses `document.querySelector` to access the textarea and output elements.
+- `marked.js` is utilized to convert Markdown to HTML, ensuring `typeof window.marked !== 'undefined'`.
+- `highlight.js` is integrated for syntax highlighting, confirmed by `typeof window.hljs !== 'undefined'`.
+- The output is dynamically updated, checking for valid HTML elements like `<h1>` or `<p>` in the preview area.
 
 ## Deployment (GitHub Pages)
-1. Push your code to a GitHub repository.
-2. Navigate to the repository settings.
-3. Under the "Pages" section, select the branch to deploy (usually `main` or `gh-pages`).
-4. Your site will be available at `https://yourusername.github.io/repository-name`.
+1. Push your changes to the `main` branch of your repository.
+2. Go to the repository settings on GitHub.
+3. Under the "Pages" section, select the `main` branch as the source.
+4. Your site will be live at `https://24f2004387.github.io/user-when/`.
 
 ## License (MIT)
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
